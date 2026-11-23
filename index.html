@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Odamife Foods and Events provides quality meals and memorable event catering.">
+    <title>Odamife Foods and Events</title>
+    <style>
+        :root {
+            --green: #145f3b;
+            --green-dark: #0c4027;
+            --gold: #d79a25;
+            --cream: #fffaf1;
+            --red: #8e2f23;
+            --text: #263126;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: Cambria, Georgia, serif;
+            color: var(--text);
+            background:
+                linear-gradient(rgba(255, 250, 241, 0.76), rgba(255, 250, 241, 0.76)),
+                url("./fresh-raw-meat-cuts-with-herbs-spices-dark-background.jpg")
+                center center / cover no-repeat fixed;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255, 250, 241, 0.96);
+            border-bottom: 1px solid rgba(20, 95, 59, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            max-width: 1100px;
+            height: 70px;
+            margin: auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .nav-brand {
+            color: var(--green);
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-button,
+        .button {
+            display: inline-block;
+            border: none;
+            border-radius: 999px;
+            background: var(--green);
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            font: 700 1rem Cambria, Georgia, serif;
+            cursor: pointer;
+        }
+
+        .nav-button:hover,
+        .button:hover {
+            background: var(--green-dark);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .hero {
+            min-height: 520px;
+            display: grid;
+            grid-template-columns: 1fr 0.82fr;
+            align-items: center;
+            gap: 34px;
+            margin-bottom: 30px;
+        }
+
+        .hero-copy {
+            max-width: 620px;
+            padding: 44px 0;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--red);
+            font-size: 0.92rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0 0 18px;
+            color: var(--green-dark);
+            font-size: clamp(2.8rem, 7vw, 5.6rem);
+            line-height: 0.95;
+        }
+
+        .hero-copy > p:not(.eyebrow) {
+            max-width: 570px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--green);
+            border: 2px solid var(--green);
+        }
+
+        .button-outline:hover {
+            color: white;
+        }
+
+        .brand-card {
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.94);
+            border-radius: 24px;
+            box-shadow: 0 18px 50px rgba(45, 44, 32, 0.18);
+            transform: rotate(1deg);
+        }
+
+        .brand-logo {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        .section-heading {
+            margin: 8px 0 28px;
+            color: var(--green-dark);
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+        }
+
+        .section-heading span {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--red);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            min-height: 210px;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(20, 95, 59, 0.12);
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(45, 44, 32, 0.10);
+        }
+
+        .service-card h3 {
+            margin: 0 0 10px;
+            color: var(--green);
+            font-size: 1.5rem;
+        }
+
+        .service-card p,
+        .about p,
+        .feedback-copy p {
+            line-height: 1.7;
+        }
+
+        .about,
+        .feedback {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .about > div,
+        .feedback > div {
+            padding: 34px;
+            background: rgba(255, 250, 241, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(45, 44, 32, 0.10);
+        }
+
+        .about h2,
+        .feedback h2 {
+            margin-top: 0;
+            color: var(--green-dark);
+            font-size: 2.2rem;
+        }
+
+        .about-image {
+            min-height: 360px;
+            border-radius: 18px;
+            background:
+                linear-gradient(rgba(20, 95, 59, 0.05), rgba(20, 95, 59, 0.05)),
+                url("./7V6sSY.jpg") center / cover no-repeat;
+            box-shadow: 0 12px 30px rgba(45, 44, 32, 0.12);
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            font: inherit;
+            border: 2px solid #ddd7c9;
+            border-radius: 8px;
+            background: white;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+
+        .form-status {
+            min-height: 24px;
+            margin: 12px 0 0;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 24px;
+            color: white;
+            background: var(--green-dark);
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .nav {
+                height: auto;
+                min-height: 70px;
+                align-items: flex-start;
+                padding-top: 18px;
+                padding-bottom: 18px;
+            }
+
+            .nav-links a:not(.nav-button) {
+                display: none;
+            }
+
+            main {
+                padding: 16px;
+            }
+
+            .hero,
+            .about,
+            .feedback {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-copy {
+                padding: 36px 0 10px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 280px;
+            }
+
+            .brand-card {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-brand {
+                max-width: 150px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .about > div,
+            .feedback > div,
+            .service-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <nav class="nav" aria-label="Main navigation">
+            <a class="nav-brand" href="#home">Odamife Foods &amp; Events</a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a class="nav-button" href="#contact">Make an Enquiry</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-copy">
+                <p class="eyebrow">Fresh taste. Memorable moments.</p>
+                <h1>Food that brings people together.</h1>
+                <p>
+                    Quality meals and dependable event catering for parties,
+                    celebrations, meetings, and everyday occasions.
+                </p>
+                <div class="hero-actions">
+                    <a class="button" href="#contact">Plan an Event</a>
+                    <a class="button button-outline" href="#services">Explore Services</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <img
+                    class="brand-logo"
+                    src="./IMG-20261021-WA0021.jpg"
+                    alt="Odamife Foods and Events - We make your events memorable"
+                >
+            </div>
+        </section>
+
+        <section id="services">
+            <h2 class="section-heading">
+                <span>What we offer</span>
+                Our Services
+            </h2>
+            <div class="services">
+                <article class="service-card">
+                    <h3>Event Catering</h3>
+                    <p>
+                        Thoughtfully prepared menus for weddings, birthdays,
+                        corporate functions, and intimate gatherings.
+                    </p>
+                </article>
+                <article class="service-card">
+                    <h3>Quality Meals</h3>
+                    <p>
+                        Delicious, fresh food made with care and high-quality
+                        ingredients for individual and group orders.
+                    </p>
+                </article>
+                <article class="service-card">
+                    <h3>Complete Service</h3>
+                    <p>
+                        Friendly, reliable support that helps every occasion
+                        feel organized, welcoming, and memorable.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div>
+                <p class="eyebrow">About us</p>
+                <h2>Great taste, delivered with care.</h2>
+                <p>
+                    Odamife Foods and Events is passionate about providing
+                    excellent food and dependable service. We focus on freshness,
+                    flavour, and attention to detail in everything we prepare.
+                </p>
+                <p>
+                    From a small family occasion to a larger celebration,
+                    our goal is to make every guest feel welcomed and every
+                    event a success.
+                </p>
+            </div>
+            <div class="about-image" role="img" aria-label="Freshly prepared food"></div>
+        </section>
+
+        <section class="feedback" id="contact">
+            <div class="feedback-copy">
+                <p class="eyebrow">Get in touch</p>
+                <h2>Plan your next occasion.</h2>
+                <p>
+                    Tell us what you have in mind. Share your event details,
+                    number of guests, or ask us for a menu recommendation.
+                </p>
+                <p><strong>Phone:</strong> 08068245357</p>
+            </div>
+            <div>
+                <form id="feedback-form">
+                    <label for="name">Your name</label>
+                    <input id="name" name="name" type="text" placeholder="Enter your name" required>
+
+                    <label for="feedback">Your message</label>
+                    <textarea
+                        id="feedback"
+                        name="feedback"
+                        placeholder="Tell us about your event or experience"
+                        required
+                    ></textarea>
+
+                    <button class="button" type="submit">Send Enquiry</button>
+                    <p class="form-status" id="form-status" role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <strong>Odamife Foods and Events</strong>
+        <p>We make your events memorable.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("feedback-form");
+        const status = document.getElementById("form-status");
+        const whatsappNumber = "2348068245357";
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const message = document.getElementById("feedback").value.trim();
+            const whatsappMessage = [
+                "Hello Odamife Foods and Events!",
+                "",
+                `Name: ${name}`,
+                `Enquiry: ${message}`
+            ].join("\n");
+
+            const whatsappUrl =
+                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+            status.textContent = "Opening WhatsApp...";
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+        });
+    </script>
+</body>
+</html>
